@@ -1,0 +1,9 @@
+/api/log/*
+/api/storage/*
+!/api/storage/.keep
+/api/config/master.key
+/api/db/schema.rb
+
+/tmp/*
+
+.DS_Store
