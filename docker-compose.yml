@@ -12,6 +12,7 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   api:
+    image: rails_api
     depends_on:
       - postgres
     build:
