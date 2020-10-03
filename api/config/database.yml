@@ -21,13 +21,13 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  username: postgres
+  password: dev
+  host: postgres
 
 development:
   <<: *default
-  username: <%= ENV["POSTGRES_USER"] %>
-  password: <%= ENV["POSTGRES_PASSWORD"] %>
-  host: <%= ENV["POSTGRES_HOST"] %>
-  # database: <%= ENV["POSTGRES_DB"] %>
+  database: api_dev
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: api_production
-  username: api
-  password: <%= ENV['API_DATABASE_PASSWORD'] %>
+  database: <%= ENV["API_DATABASE_PROD"] %>
+  username: <%= ENV["API_DATABASE_USER_PROD"] %>
+  password: <%= ENV["API_DATABASE_PASSWORD_PROD"] %>
+  host: <%= ENV["API_DATABASE_HOST_PROD"] %>
