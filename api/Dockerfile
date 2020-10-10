@@ -10,8 +10,8 @@ RUN apk update && \
     apk add --virtual build-packages --no-cache $DEV_PACKAGES
 
 WORKDIR /api
-COPY /api/Gemfile ./
-COPY /api/Gemfile.lock ./
+COPY /Gemfile ./
+COPY /Gemfile.lock ./
 RUN bundle install
 RUN apk del build-packages
 COPY . /api
